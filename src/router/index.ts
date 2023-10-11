@@ -30,9 +30,9 @@ const routes = [
         component: () => import('@/views/Audit.vue')
       },
       {
-        path: 'help',
-        name: 'help',
-        component: () => import('@/views/Help.vue')
+        path: 'error',
+        name: 'error',
+        component: () => import('@/views/InsufficientRole.vue')
       },
       {
         path: 'imprint',

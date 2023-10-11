@@ -21,3 +21,7 @@ export function checkIfUserIsLoggedIn(promise: Promise<any>) {
 export function redirectToLogin() {
     window.location.href = "/oauth2/authorization/keycloak";
 }
+
+export function redirectToInsufficientRoles() {
+  window.location.href = "/error";
+}
