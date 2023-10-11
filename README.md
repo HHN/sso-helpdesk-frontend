@@ -1,4 +1,8 @@
-# essentials
+# SSO Helpdesk Frontend
+
+## Issue Reporting
+
+Please report any issue here: [https://github.com/HHN/sso-helpdesk](https://github.com/HHN/sso-helpdesk)
 
 ## Project setup
 
