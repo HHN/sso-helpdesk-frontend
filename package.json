@@ -29,7 +29,7 @@
     "@vitejs/plugin-vue": "^4.4.0",
     "@vue/eslint-config-typescript": "^12.0.0",
     "eslint": "^8.52.0",
-    "eslint-plugin-vue": "^9.17.0",
+    "eslint-plugin-vue": "^9.18.1",
     "sass": "^1.69.4",
     "typescript": "^5.2.2",
     "vite": "^4.4.11",
