@@ -12,7 +12,7 @@
     "@fontsource/roboto": "^5.0.8",
     "@mdi/font": "^7.3.67",
     "axios": "^1.6.2",
-    "core-js": "^3.33.2",
+    "core-js": "^3.34.0",
     "downloadjs": "^1.4.7",
     "html5-qrcode": "^2.3.8",
     "pinia": "^2.1.7",
