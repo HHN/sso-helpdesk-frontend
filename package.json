@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@fontsource/roboto": "^5.0.8",
-    "@mdi/font": "^7.3.67",
+    "@mdi/font": "^7.4.47",
     "axios": "^1.6.2",
     "core-js": "^3.34.0",
     "downloadjs": "^1.4.7",
