@@ -93,7 +93,7 @@ return new Date(n/1e4 - 1.16444736e13);
 }
 
 function dateToString(date: Date) {
-  let options = { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' };
+  const options: Intl.DateTimeFormatOptions = { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false };
   return date.toLocaleString('de-de', options);
 }
 
