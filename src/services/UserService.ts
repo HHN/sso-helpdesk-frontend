@@ -29,12 +29,13 @@ export function fetchUsers(searchQuery: string) : void {
     }
 }
 
-export function resetCredential(keycloakId: string, seq: string) : void {
+export function resetCredential(keycloakId: string, seq: string, resetMfa: boolean) : void {
     if (!appStore.isWaiting) {
         appStore.isWaiting = true;
         checkIfUserIsLoggedIn(axios.post("/admin/rest/reset", {
             id: keycloakId,
-            seq: seq
+            seq: seq,
+            resetMfa: resetMfa
         }).then(response => {
             appStore.isWaiting = false;
             appStore.showResetDialog = false;

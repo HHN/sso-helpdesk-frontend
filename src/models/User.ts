@@ -7,7 +7,7 @@ export class User {
     id: string = "";
     accountExpires: number = -1;
     passwordUpdateRequired = false;
-    mfaSet = false;
+    enabled = false;
 
 
 }

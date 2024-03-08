@@ -10,6 +10,9 @@
             
         </v-row>
         <v-row>
+          <v-checkbox v-model="resetMfa" label="2. Faktoren zurücksetzen"></v-checkbox>
+          </v-row>
+        <v-row>
             <v-text-field
         variant="solo"
         v-model="seq"
@@ -43,24 +46,26 @@ import { onBeforeUnmount, onMounted, ref } from "vue";
 const appStore = useAppStore();
 
 const seq = ref<string>();
+const resetMfa = ref<boolean>(true);
+
 
 
 function handleSeqSubmit() {
-    startResetCredential(seq.value!)
+    startResetCredential(seq.value!, resetMfa.value!)
 }
 
 
 
-function startResetCredential(seq: string) {
+function startResetCredential(seq: string, resetMfa: boolean) {
     if (seq != null && seq!= undefined) {
-        resetCredential(appStore.currentResetUser.content?.keycloakId!, seq);
+        resetCredential(appStore.currentResetUser.content?.keycloakId!, seq, resetMfa);
     }
 } 
 
 
 function onScanSuccess(decodedText: any, decodedResult: any) {
   console.log("decodedText: " + decodedText);
-  startResetCredential(decodedText);
+  startResetCredential(decodedText, resetMfa.value!);
 }
 
 function onScanFailure(error: any) {

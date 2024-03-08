@@ -33,12 +33,12 @@
         <td>{{ item.email }}</td>
         <td>{{ item.id }}</td>
         <td>
-          <!-- Password set ? -->
-          <v-icon icon="mdi-lock" style="color: red;" v-if="item.passwordUpdateRequired" />
-          <v-icon icon="mdi-lock" style="color: green;" v-if="!item.passwordUpdateRequired" />
+          <!-- Enabled -->
+          <v-icon icon="mdi-close" style="color: red;" v-if="!item.enabled" />
+          <v-icon icon="mdi-check" style="color: green;" v-if="item.enabled" />
           <!-- Account active ? -->
-          <v-icon icon="mdi-close" style="color: red;" v-if="item.accountExpires != -1 && item.accountExpires < Date.now()" />
-          <v-icon icon="mdi-check" style="color: green;" v-if="item.accountExpires == -1 || item.accountExpires >= Date.now()" />
+          <v-icon icon="mdi-clock" style="color: red;" v-if="item.accountExpires != -1 && convertDate(item.accountExpires) < new Date(Date.now())" />
+          <v-icon icon="mdi-clock" style="color: green;" v-if="item.accountExpires == -1 || convertDate(item.accountExpires) >= new Date(Date.now())" />
             &nbsp;
           <span v-if="item.accountExpires == -1">läuft nie ab</span>
           <span v-if="item.accountExpires != -1" v-text="'Ablauf: ' + dateToString(convertDate(item.accountExpires))"></span>
