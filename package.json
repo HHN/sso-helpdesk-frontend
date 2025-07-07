@@ -22,7 +22,7 @@
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
-    "@babel/types": "^7.27.7",
+    "@babel/types": "^7.28.0",
     "@types/downloadjs": "^1.4.6",
     "@types/node": "^24.0.10",
     "@types/webfontloader": "^1.6.38",
