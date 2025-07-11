@@ -1,63 +1,58 @@
-// Plugins
-import vue from '@vitejs/plugin-vue'
-import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
-
-// Utilities
 import { defineConfig } from 'vite'
+import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 import { fileURLToPath, URL } from 'node:url'
 
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [
-    vue({
-      template: { transformAssetUrls }
-    }),
-    // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin
-    vuetify({
-      autoImport: true,
-      styles: {
-        configFile: 'src/styles/settings.scss',
-      },
-    }),
-  ],
-  define: { 'process.env': {} },
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    },
-    extensions: [
-      '.js',
-      '.json',
-      '.jsx',
-      '.mjs',
-      '.ts',
-      '.tsx',
-      '.vue',
+// Use async config
+export default defineConfig(async () => {
+  const vue = (await import('@vitejs/plugin-vue')).default
+
+  return {
+    plugins: [
+      vue({ template: { transformAssetUrls } }),
+      vuetify({
+        autoImport: true,
+        styles: {
+          configFile: 'src/styles/settings.scss',
+        },
+      }),
     ],
-  },
-  server: {
-    port: 3000,
-    proxy: {
-      '/admin': {
-        target: 'http://localhost:8080',
-        headers: {
-          "X-Forwarded-Host": "http://localhost:3000"
-        }
+    define: { 'process.env': {} },
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url)),
       },
-      '/oauth2': {
-        target: 'http://localhost:8080',
-        headers: {
-          "X-Forwarded-Host": "http://localhost:3000"
-        }
-      },
-      '/login': {
-        target: 'http://localhost:8080',
-        headers: {
-          "X-Forwarded-Host": "http://localhost:3000"
-        }
-      },
+      extensions: [
+        '.js',
+        '.json',
+        '.jsx',
+        '.mjs',
+        '.ts',
+        '.tsx',
+        '.vue',
+      ],
+    },
+    server: {
+      port: 3000,
+      proxy: {
+        '/admin': {
+          target: 'http://localhost:8080',
+          headers: {
+            "X-Forwarded-Host": "http://localhost:3000"
+          }
+        },
+        '/oauth2': {
+          target: 'http://localhost:8080',
+          headers: {
+            "X-Forwarded-Host": "http://localhost:3000"
+          }
+        },
+        '/login': {
+          target: 'http://localhost:8080',
+          headers: {
+            "X-Forwarded-Host": "http://localhost:3000"
+          }
+        },
+      }
+    },
   }
-  },
-
-
 })
