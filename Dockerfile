@@ -1,4 +1,4 @@
-FROM node:18 as build
+FROM node:22 as build
 
 COPY . /work
 RUN cd /work && npm i && npm run build
