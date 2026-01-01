@@ -28,7 +28,7 @@
     "@types/webfontloader": "^1.6.38",
     "@vitejs/plugin-vue": "^6.0.1",
     "@vue/eslint-config-typescript": "^14.6.0",
-    "eslint": "^9.34.0",
+    "eslint": "^9.39.2",
     "eslint-plugin-vue": "^10.4.0",
     "sass": "^1.91.0",
     "typescript": "^5.9.2",
