@@ -16,7 +16,7 @@
     "downloadjs": "^1.4.7",
     "html5-qrcode": "^2.3.8",
     "pinia": "^3.0.3",
-    "vue": "^3.5.20",
+    "vue": "^3.5.27",
     "vue-router": "^4.5.1",
     "vuetify": "^3.9.6",
     "webfontloader": "^1.6.28"
